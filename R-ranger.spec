@@ -4,7 +4,7 @@
 #
 Name     : R-ranger
 Version  : 0.11.1
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/ranger_0.11.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ranger_0.11.1.tar.gz
 Summary  : A Fast Implementation of Random Forests

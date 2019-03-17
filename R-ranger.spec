@@ -4,17 +4,16 @@
 #
 Name     : R-ranger
 Version  : 0.11.2
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/ranger_0.11.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ranger_0.11.2.tar.gz
 Summary  : A Fast Implementation of Random Forests
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-ranger-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-RcppEigen
 BuildRequires : R-Rcpp
 BuildRequires : R-RcppEigen
+BuildRequires : R-rlang
 BuildRequires : buildreq-R
 
 %description
@@ -40,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552071141
+export SOURCE_DATE_EPOCH=1552811538
 
 %install
-export SOURCE_DATE_EPOCH=1552071141
+export SOURCE_DATE_EPOCH=1552811538
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -79,8 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library ranger|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  ranger || :
 
 
 %files
@@ -107,10 +105,34 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/ranger/html/00Index.html
 /usr/lib64/R/library/ranger/html/R.css
 /usr/lib64/R/library/ranger/include/ranger.h
-/usr/lib64/R/library/ranger/libs/symbols.rds
+/usr/lib64/R/library/ranger/tests/test_gwaa.rds
+/usr/lib64/R/library/ranger/tests/testthat.R
+/usr/lib64/R/library/ranger/tests/testthat/test_char.R
+/usr/lib64/R/library/ranger/tests/testthat/test_classification.R
+/usr/lib64/R/library/ranger/tests/testthat/test_classweights.R
+/usr/lib64/R/library/ranger/tests/testthat/test_csrf.R
+/usr/lib64/R/library/ranger/tests/testthat/test_extratrees.R
+/usr/lib64/R/library/ranger/tests/testthat/test_formula.R
+/usr/lib64/R/library/ranger/tests/testthat/test_genabel.R
+/usr/lib64/R/library/ranger/tests/testthat/test_importance.R
+/usr/lib64/R/library/ranger/tests/testthat/test_importance_pvalues.R
+/usr/lib64/R/library/ranger/tests/testthat/test_inbag.R
+/usr/lib64/R/library/ranger/tests/testthat/test_interface.R
+/usr/lib64/R/library/ranger/tests/testthat/test_jackknife.R
+/usr/lib64/R/library/ranger/tests/testthat/test_maxstat.R
+/usr/lib64/R/library/ranger/tests/testthat/test_predict.R
+/usr/lib64/R/library/ranger/tests/testthat/test_print.R
+/usr/lib64/R/library/ranger/tests/testthat/test_probability.R
+/usr/lib64/R/library/ranger/tests/testthat/test_quantreg.R
+/usr/lib64/R/library/ranger/tests/testthat/test_ranger.R
+/usr/lib64/R/library/ranger/tests/testthat/test_regression.R
+/usr/lib64/R/library/ranger/tests/testthat/test_seed.R
+/usr/lib64/R/library/ranger/tests/testthat/test_sparse.R
+/usr/lib64/R/library/ranger/tests/testthat/test_splitweights.R
+/usr/lib64/R/library/ranger/tests/testthat/test_survival.R
+/usr/lib64/R/library/ranger/tests/testthat/test_treeInfo.R
+/usr/lib64/R/library/ranger/tests/testthat/test_unordered.R
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/ranger/libs/ranger.so
-/usr/lib64/R/library/ranger/libs/ranger.so.avx2
-/usr/lib64/R/library/ranger/libs/ranger.so.avx512

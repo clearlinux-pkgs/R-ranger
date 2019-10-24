@@ -4,7 +4,7 @@
 #
 Name     : R-ranger
 Version  : 0.11.2
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/ranger_0.11.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ranger_0.11.2.tar.gz
 Summary  : A Fast Implementation of Random Forests
@@ -12,10 +12,10 @@ Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-ranger-lib = %{version}-%{release}
 Requires: R-Rcpp
-Requires: R-RcppEigen
 BuildRequires : R-Rcpp
 BuildRequires : R-RcppEigen
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 dimensional data. Ensembles of classification, regression, survival and
@@ -40,10 +40,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569369482
+export SOURCE_DATE_EPOCH=1571883089
 
 %install
-export SOURCE_DATE_EPOCH=1569369482
+export SOURCE_DATE_EPOCH=1571883089
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
